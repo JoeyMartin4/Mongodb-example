@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Categories{% endblock %}
+
+{% block content %}
+    <h2>Movie Categories</h2>
+    <ul>
+        {% for category in categories %}
+            <li><a href="{{ url_for('category', category_name=category.name) }}">
+                {{ category.name }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

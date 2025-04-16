@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}remove_movie_from_category{% endblock %}
+
+{% block content %}
+    <h2>Remove movie from category</h2>
+    <form method="POST" action="do_remove_movie_from_category">
+        <table>
+        {% for category in categories %}
+            {% if category.name != "All Movies" %}<tr><td colspan="2"><h3>{{ category.name }}</h3></td></tr>
+            {% for movie in category.movies %}
+            <tr><td>
+                &nbsp;
+            </td><td>
+                {{ movie }}
+            </td><td>
+                <button type="submit" name="removing" value="{{ category.name }}|{{ movie }}">X</button></td></tr>
+            </td>
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+        </table>
+{% endblock %}
+
+

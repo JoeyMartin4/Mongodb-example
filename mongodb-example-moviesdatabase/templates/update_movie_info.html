@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}update_movie_info{% endblock %}
+
+{% block content %}
+        <form method="POST" action="do_update_movie_info">
+            <label>Select movie:</label>
+            <select required name="movieselected">
+              {% for movie in movies %}
+              <option value="{{ movie.title }}">{{ movie.title }}</option>
+              {% endfor %}
+            </select>
+          <br>
+          <table>
+              <tr><th><label>Title:</label></th><td><input type="text" name="updatedtitle"></td></tr>
+              <tr><th><label>Director:</label></th><td><input type="text" name="updateddirector"></td></tr>
+              <tr><th><label>Year Created:</label></th><td><input type="text" name="updatedyear"></td></tr>
+          </table>
+          <button type="submit">Update Movie</button>
+        </form>
+
+{% endblock %}
+
+
